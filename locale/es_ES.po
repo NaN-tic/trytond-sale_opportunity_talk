@@ -1,0 +1,91 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:sale.opportunity,email_cc:"
+msgid "CC"
+msgstr "CC"
+
+msgctxt "field:sale.opportunity,email_from:"
+msgid "Email"
+msgstr "Email"
+
+msgctxt "field:sale.opportunity,message_id:"
+msgid "Message ID"
+msgstr "Mensaje ID"
+
+msgctxt "field:sale.opportunity,talks:"
+msgid "Talks"
+msgstr "Conversaciones"
+
+msgctxt "field:sale.opportunity.talk,message:"
+msgid "Comment"
+msgstr "Comentario"
+
+msgctxt "field:sale.opportunity.talk,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:sale.opportunity.talk,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:sale.opportunity.talk,date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:sale.opportunity.talk,display_text:"
+msgid "Display Text"
+msgstr "Mostrar texto"
+
+msgctxt "field:sale.opportunity.talk,email:"
+msgid "email"
+msgstr "Correo electrónico"
+
+msgctxt "field:sale.opportunity.talk,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:sale.opportunity.talk,opportunity:"
+msgid "Talks"
+msgstr "Conversaciones"
+
+msgctxt "field:sale.opportunity.talk,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sale.opportunity.talk,unread:"
+msgid "Unread"
+msgstr "No leído"
+
+msgctxt "field:sale.opportunity.talk,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:sale.opportunity.talk,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "model:sale.opportunity.talk,name:"
+msgid "Sale Opportunity Talk"
+msgstr "Conversación de oportunidad"
+
+msgctxt "view:sale.opportunity.talk:"
+msgid "Talks"
+msgstr "Conversaciones"
+
+msgctxt "view:sale.opportunity:"
+msgid "Add Last Mail for Replying"
+msgstr "Añade último correo para contestar"
+
+msgctxt "view:sale.opportunity:"
+msgid "Add note"
+msgstr "Añadir nota"
+
+msgctxt "view:sale.opportunity:"
+msgid "General Information"
+msgstr "Información general"
+
+msgctxt "view:sale.opportunity:"
+msgid "Send Email"
+msgstr "Enviar correo electrónico"

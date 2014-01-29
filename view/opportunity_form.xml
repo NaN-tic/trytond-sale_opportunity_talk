@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- This file is part of the sale_opportunity_talk module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/notebook/page[@id='opportunity']" position="before">
+        <page string="General Information" id="general">
+            <label name="email_from"/>
+            <field name="email_from"/>
+            <label name="email_cc"/>
+            <field name="email_cc"/>
+            <field name="talks" colspan="2"
+                view_ids="sale_opportunity_talk.sale_opportunity_talk_view_tree2"/>
+            <group col="2" colspan="2" id="message" yfill="1" yexpand="1">
+                <button string="Add Last Mail for Replying" name="add_reply" colspan="2"/>
+                <newline/>
+                <field name="message" colspan="2"/>
+                <newline/>
+                    <button string="Send Email" name="talk_email"/>
+                    <button string="Add note" name="talk_note"/>
+            </group>
+        </page>
+    </xpath>
+</data>

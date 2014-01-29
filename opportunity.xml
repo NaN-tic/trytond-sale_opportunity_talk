@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- This file is part of the sale_opportunity_talk module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data>
+        <!-- sale.opportunity -->
+        <record model="ir.ui.view" id="opportunity_view_form">
+            <field name="model">sale.opportunity</field>
+            <field name="inherit" ref="sale_opportunity.opportunity_view_form"/>
+            <field name="name">opportunity_form</field>
+        </record>
+
+        <!-- sale.opportunity.talk -->
+        <record model="ir.ui.view" id="sale_opportunity_talk_view_form">
+            <field name="model">sale.opportunity.talk</field>
+            <field name="type">form</field>
+            <field name="name">opportunity_talk_form</field>
+        </record>
+        <record model="ir.ui.view" id="sale_opportunity_talk_view_tree">
+            <field name="model">sale.opportunity.talk</field>
+            <field name="type">tree</field>
+            <field name="name">opportunity_talk_tree</field>
+        </record>
+        <record model="ir.ui.view" id="sale_opportunity_talk_view_tree2">
+            <field name="model">sale.opportunity.talk</field>
+            <field name="type">tree</field>
+            <field name="name">opportunity_talk_tree2</field>
+        </record>
+    </data>
+</tryton>
