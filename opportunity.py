@@ -63,41 +63,19 @@ class SaleOpportunityTalk(Workflow, ModelSQL, ModelView):
 
 class SaleOpportunity:
     __name__ = "sale.opportunity"
-    talks = fields.One2Many('sale.opportunity.talk', 'opportunity', 'Talks',
-        states={
-            'readonly': ~Eval('state').in_(['lead', 'opportunity']),
-            },
-        depends=['state'])
-    message = fields.Text('Comment',
-        states={
-            'readonly': ~Eval('state').in_(['lead', 'opportunity']),
-            },
-        depends=['state'])
-    email_from = fields.Char('Email',
-        states={
-            'readonly': ~Eval('state').in_(['lead', 'opportunity']),
-            },
-        depends=['state'])
-    email_cc = fields.Char('CC',
-        states={
-            'readonly': ~Eval('state').in_(['lead', 'opportunity']),
-            },
-        depends=['state'])
+    talks = fields.One2Many('sale.opportunity.talk', 'opportunity', 'Talks')
+    message = fields.Text('Comment')
+    email_from = fields.Char('Email')
+    email_cc = fields.Char('CC')
     message_id = fields.Char('Message ID')
 
     @classmethod
     def __setup__(cls):
         super(SaleOpportunity, cls).__setup__()
         cls._buttons.update({
-            'add_reply': {
-                'invisible': ~Eval('state').in_(['lead', 'opportunity']),
-                },
-            'talk_note': {
-                'invisible': ~Eval('state').in_(['lead', 'opportunity']),
-                },
-            'talk_email': {
-                'invisible': ~Eval('state').in_(['lead', 'opportunity']),
-                },
+            'add_reply': {},
+            'talk_note': {},
+            'talk_email': {},
             })
 
     @classmethod
