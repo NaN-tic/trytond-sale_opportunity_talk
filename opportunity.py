@@ -82,6 +82,7 @@ class SaleOpportunity:
     @classmethod
     def search_rec_name(cls, name, clause):
         return ['OR',
+                ('reference',) + tuple(clause[1:]),
                 ('description',) + tuple(clause[1:]),
                 ('party',) + tuple(clause[1:]),
                 ('email_from',) + tuple(clause[1:]),
