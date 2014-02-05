@@ -10,17 +10,21 @@ msgctxt "field:sale.opportunity,email_from:"
 msgid "Email"
 msgstr "Email"
 
+msgctxt "field:sale.opportunity,message:"
+msgid "Comment"
+msgstr "Comentario"
+
 msgctxt "field:sale.opportunity,message_id:"
 msgid "Message ID"
 msgstr "Mensaje ID"
 
+msgctxt "field:sale.opportunity,phone:"
+msgid "Phone"
+msgstr "Teléfono"
+
 msgctxt "field:sale.opportunity,talks:"
 msgid "Talks"
 msgstr "Conversaciones"
-
-msgctxt "field:sale.opportunity.talk,message:"
-msgid "Comment"
-msgstr "Comentario"
 
 msgctxt "field:sale.opportunity.talk,create_date:"
 msgid "Create Date"
@@ -45,6 +49,10 @@ msgstr "Correo electrónico"
 msgctxt "field:sale.opportunity.talk,id:"
 msgid "ID"
 msgstr "ID"
+
+msgctxt "field:sale.opportunity.talk,message:"
+msgid "Comment"
+msgstr "Comentario"
 
 msgctxt "field:sale.opportunity.talk,opportunity:"
 msgid "Talks"
