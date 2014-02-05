@@ -80,6 +80,15 @@ class SaleOpportunity:
             })
 
     @classmethod
+    def search_rec_name(cls, name, clause):
+        return ['OR',
+                ('description',) + tuple(clause[1:]),
+                ('party',) + tuple(clause[1:]),
+                ('email_from',) + tuple(clause[1:]),
+                ('email_cc',) + tuple(clause[1:]),
+                ]
+
+    @classmethod
     def _talk(self, opportunities):
         pool = Pool()
         Talk = pool.get('sale.opportunity.talk')
