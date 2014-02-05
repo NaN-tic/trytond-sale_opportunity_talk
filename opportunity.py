@@ -72,6 +72,7 @@ class SaleOpportunity:
     @classmethod
     def __setup__(cls):
         super(SaleOpportunity, cls).__setup__()
+        cls._order.insert(1, ('reference', 'DESC'))
         cls._buttons.update({
             'add_reply': {},
             'talk_note': {},
