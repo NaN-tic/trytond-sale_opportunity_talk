@@ -5,10 +5,14 @@ copyright notices and license terms. -->
 <data>
     <xpath expr="/form/notebook/page[@id='opportunity']" position="before">
         <page string="General Information" id="general">
-            <label name="email_from"/>
-            <field name="email_from"/>
-            <label name="email_cc"/>
-            <field name="email_cc"/>
+            <group col="6" colspan="6" id="contact-mechanisms">
+                <label name="email_from"/>
+                <field name="email_from"/>
+                <label name="email_cc"/>
+                <field name="email_cc"/>
+                <label name="phone"/>
+                <field name="phone"/>
+            </group>
             <field name="talks" colspan="2"
                 view_ids="sale_opportunity_talk.sale_opportunity_talk_view_tree2"/>
             <group col="2" colspan="2" id="message" yfill="1" yexpand="1">

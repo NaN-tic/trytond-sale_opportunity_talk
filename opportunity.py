@@ -68,6 +68,7 @@ class SaleOpportunity:
     email_from = fields.Char('Email')
     email_cc = fields.Char('CC')
     message_id = fields.Char('Message ID')
+    phone = fields.Char('Phone')
 
     @classmethod
     def __setup__(cls):
