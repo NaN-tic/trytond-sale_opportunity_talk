@@ -3,7 +3,6 @@
 # the full copyright notices and license terms.
 from trytond.model import Workflow, ModelView, ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
-from trytond.pyson import Eval
 from trytond.transaction import Transaction
 from datetime import datetime
 from email import Utils
@@ -17,7 +16,6 @@ try:
     import emailvalid
     CHECK_EMAIL = True
 except ImportError:
-    import logging
     logging.getLogger('Sale Opportunity Talk').warning(
     'Unable to import emailvalid. Email validation disabled.')
 
