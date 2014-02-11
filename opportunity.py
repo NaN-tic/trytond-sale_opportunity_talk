@@ -252,6 +252,7 @@ class SaleOpportunity:
 
             logging.getLogger('Sale Opportunity').info('Process email: %s' % (msgeid))
 
+            #Search helpdesk by msg reference, msg in reply to or "description + email from"
             opportunity = None
             if msgreferences or msginrepplyto:
                 references = msgreferences or msginrepplyto
@@ -261,10 +262,17 @@ class SaleOpportunity:
                     references = references.split(' ')
                 for ref in references:
                     ref = ref.strip()
-                    opportunity = self.search([('message_id', '=', ref)], limit=1)
-                    if opportunity:
-                        opportunity = opportunity[0]
+                    opportunities = self.search([('message_id', '=', ref)], limit=1)
+                    if opportunities:
+                        opportunity = opportunities[0]
                         break
+            if not opportunity:
+                opportunities = self.search([
+                    ('name', 'ilike', msgsubject),
+                    ('email_from', '=', msgfrom),
+                    ])
+                if opportunities:
+                    opportunity = opportunities[0]
 
             # Create a new sale opportunity
             if not opportunity:
