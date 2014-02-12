@@ -267,7 +267,10 @@ class SaleOpportunity:
             if not opportunity:
                 opportunities = self.search([
                     ('name', 'ilike', msgsubject),
-                    ('email_from', '=', msgfrom),
+                    ['OR',
+                        ('email_from', '=', msgfrom),
+                        ('email_cc', 'ilike', msgfrom),
+                        ],
                     ])
                 if opportunities:
                     opportunity = opportunities[0]
