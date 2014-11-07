@@ -1,2 +1,4 @@
+Version 3.4.0 - 2014-11-05
+
 * Order opportunities by start_date,reference 
 * Oppotunity search rec name by: description, party, email_from, email_cc
