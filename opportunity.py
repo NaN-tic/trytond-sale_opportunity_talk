@@ -40,7 +40,9 @@ class SaleOpportunityTalk(Workflow, ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(SaleOpportunityTalk, cls).__setup__()
-        cls._order.insert(0, ('id', 'DESC'))
+        cls._order = [
+            ('id', 'DESC'),
+            ]
 
     @staticmethod
     def truncate_data(data):
