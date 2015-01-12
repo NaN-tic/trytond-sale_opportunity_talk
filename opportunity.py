@@ -240,8 +240,8 @@ class SaleOpportunity:
         SaleOpportunityTalk = pool.get('sale.opportunity.talk')
         Attachment = pool.get('ir.attachment')
 
-        for (messageid, message) in messages:
-            msgeid = message.messageid
+        for message in messages:
+            msgeid = str(message.uid)
             msgfrom = parseaddr(message.from_addr)[1] if message.from_addr else None
             msgcc = message.cc if not message.cc == 'None' else None
             msgreferences = message.references
