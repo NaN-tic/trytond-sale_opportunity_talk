@@ -11,13 +11,14 @@ from email.mime.text import MIMEText
 from email.utils import parseaddr
 import logging
 
+logger = logging.getLogger(__name__)
+
 CHECK_EMAIL = False
 try:
     import emailvalid
     CHECK_EMAIL = True
 except ImportError:
-    logging.getLogger('Sale Opportunity Talk').warning(
-    'Unable to import emailvalid. Email validation disabled.')
+    logger.error('Unable to import emailvalid. Install emailvalid package.')
 
 __all__ = [
     'SaleOpportunityTalk', 'SaleOpportunity']
@@ -250,7 +251,7 @@ class SaleOpportunity:
             msgdate = message.date
             msgbody = message.body
 
-            logging.getLogger('Sale Opportunity').info('Process email: %s' % (msgeid))
+            logger.info('Process email: %s' % (msgeid))
 
             #Search helpdesk by msg reference, msg in reply to or "description + email from"
             opportunity = None
