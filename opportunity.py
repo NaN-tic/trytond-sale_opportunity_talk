@@ -150,25 +150,22 @@ class SaleOpportunity:
         self._talk(opportunities)
         self.write(opportunities, {'message': None})
 
+    @fields.depends('party', 'email_from')
     def on_change_party(self):
-        pool = Pool()
-        Address = pool.get('party.address')
-        Contact = pool.get('party.contact_mechanism')
+        super(SaleOpportunity, self).on_change_party()
 
-        changes = super(SaleOpportunity, self).on_change_party()
+        self.address = None
         if self.party:
-            addresses = Address.search([('party', '=', self.party)])
-            for address in addresses:
-                changes['address'] = address.id
+            for address in self.party.addresses:
+                self.address = address
                 if address.email:
-                    changes['email_from'] = address.email
+                    self.email_from = address.email
                 break
-            if not changes.get('email_from'):
-                for contact in Contact.search([('party', '=', self.party)]):
+            if not self.email_from:
+                for contact in self.party.contact_mechanisms:
                     if contact.type == 'email':
-                        changes['email_from'] = contact.email
+                        self.email_from = contact.email
                         break
-        return changes
 
     @classmethod
     def send_email(self, opportunities, server):
