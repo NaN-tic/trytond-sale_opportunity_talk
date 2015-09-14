@@ -28,11 +28,11 @@ msgstr "Converses"
 
 msgctxt "field:sale.opportunity.talk,create_date:"
 msgid "Create Date"
-msgstr "Data de creació"
+msgstr "Data creació"
 
 msgctxt "field:sale.opportunity.talk,create_uid:"
 msgid "Create User"
-msgstr "Usuari de creació"
+msgstr "Usuari creació"
 
 msgctxt "field:sale.opportunity.talk,date:"
 msgid "Date"
