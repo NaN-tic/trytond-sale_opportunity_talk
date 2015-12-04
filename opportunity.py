@@ -25,7 +25,7 @@ __all__ = [
 __metaclass__ = PoolMeta
 
 
-class SaleOpportunityTalk(Workflow, ModelSQL, ModelView):
+class SaleOpportunityTalk(ModelSQL, ModelView):
     'Sale Opportunity Talk'
     __name__ = 'sale.opportunity.talk'
     _rec_name = 'display_text'
