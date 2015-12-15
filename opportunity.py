@@ -230,7 +230,7 @@ class SaleOpportunity:
                         })
 
     @classmethod
-    def getmail(self, messages, attachments=None):
+    def getmail(self, server, messages):
         '''Get messages and load in opportunity talks'''
         pool = Pool()
         GetMail = pool.get('getmail.server')
@@ -299,7 +299,7 @@ class SaleOpportunity:
             opportunity_talk.save()
 
             # Create a attachments
-            if attachments:
+            if server.attachment:
                 for attachment in message.attachments:
                     attach = Attachment()
                     attach.name = attachment[0]
