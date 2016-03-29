@@ -22,7 +22,6 @@ except ImportError:
 
 __all__ = [
     'SaleOpportunityTalk', 'SaleOpportunity']
-__metaclass__ = PoolMeta
 
 
 class SaleOpportunityTalk(ModelSQL, ModelView):
@@ -63,6 +62,7 @@ class SaleOpportunityTalk(ModelSQL, ModelView):
 
 
 class SaleOpportunity:
+    __metaclass__ = PoolMeta
     __name__ = "sale.opportunity"
     talks = fields.One2Many('sale.opportunity.talk', 'opportunity', 'Talks')
     message = fields.Text('Comment')
