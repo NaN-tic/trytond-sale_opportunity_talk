@@ -1,9 +1,10 @@
 # This file is part of the sale_opportunity_talk module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
-from trytond.model import Workflow, ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
+from trytond.sendmail import SMTPDataManager, sendmail_transactional
 from datetime import datetime
 from email import Utils
 from email.header import Header
@@ -169,9 +170,7 @@ class SaleOpportunity:
 
     @classmethod
     def send_email(self, opportunities, server):
-        pool = Pool()
-        SMTP = pool.get('smtp.server')
-        User = pool.get('res.user')
+        User = Pool().get('res.user')
         user = User(Transaction().user)
 
         from_ = user.email or server.smtp_email
@@ -216,13 +215,9 @@ class SaleOpportunity:
             if opportunity.message_id:
                 msg["In-Reply-To"] = opportunity.message_id
 
-            try:
-                server = SMTP.get_smtp_server(server)
-                server.sendmail(from_, recipients + cc_addresses,
-                    msg.as_string())
-                server.quit()
-            except:
-                self.raise_user_error('smtp_error')
+            datamanager = SMTPDataManager()
+            datamanager._server = server.get_smtp_server()
+            sendmail_transactional(from_, recipients, msg, datamanager=datamanager)
 
             if not opportunity.message_id:
                 self.write([opportunity], {
