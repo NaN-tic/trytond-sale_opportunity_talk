@@ -84,13 +84,19 @@ class SaleOpportunity:
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        return ['OR',
-                ('reference',) + tuple(clause[1:]),
-                ('description',) + tuple(clause[1:]),
-                ('party',) + tuple(clause[1:]),
-                ('email_from',) + tuple(clause[1:]),
-                ('email_cc',) + tuple(clause[1:]),
-                ]
+        domain = super(SaleOpportunity, cls).search_rec_name(name, clause)
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            domain,
+            ('reference',) + tuple(clause[1:]),
+            ('description',) + tuple(clause[1:]),
+            ('party',) + tuple(clause[1:]),
+            ('email_from',) + tuple(clause[1:]),
+            ('email_cc',) + tuple(clause[1:]),
+            ]
 
     @classmethod
     def _talk(self, opportunities):
