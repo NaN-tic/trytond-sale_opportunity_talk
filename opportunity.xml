@@ -11,6 +11,23 @@ copyright notices and license terms. -->
             <field name="name">opportunity_form</field>
         </record>
 
+        <!-- buttons -->
+        <record model="ir.model.button" id="add_reply_button">
+            <field name="name">add_reply</field>
+            <field name="string">Add Last Mail for Replying</field>
+            <field name="model" search="[('model', '=', 'sale.opportunity')]"/>
+        </record>
+        <record model="ir.model.button" id="talk_email_button">
+            <field name="name">talk_email</field>
+            <field name="string">Send Email</field>
+            <field name="model" search="[('model', '=', 'sale.opportunity')]"/>
+        </record>
+        <record model="ir.model.button" id="talk_note_button">
+            <field name="name">talk_note</field>
+            <field name="string">Add note</field>
+            <field name="model" search="[('model', '=', 'sale.opportunity')]"/>
+        </record>
+
         <!-- sale.opportunity.talk -->
         <record model="ir.ui.view" id="sale_opportunity_talk_view_form">
             <field name="model">sale.opportunity.talk</field>

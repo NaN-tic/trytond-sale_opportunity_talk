@@ -16,12 +16,12 @@ copyright notices and license terms. -->
             <field name="talks" colspan="2"
                 view_ids="sale_opportunity_talk.sale_opportunity_talk_view_tree2"/>
             <group col="2" colspan="2" id="message" yfill="1" yexpand="1">
-                <button string="Add Last Mail for Replying" name="add_reply" colspan="2"/>
+                <button name="add_reply" colspan="2"/>
                 <newline/>
                 <field name="message" colspan="2"/>
                 <newline/>
-                    <button string="Send Email" name="talk_email"/>
-                    <button string="Add note" name="talk_note"/>
+                    <button name="talk_email"/>
+                    <button name="talk_note"/>
             </group>
         </page>
     </xpath>

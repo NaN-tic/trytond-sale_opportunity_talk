@@ -6,10 +6,9 @@ from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
 from trytond.sendmail import SMTPDataManager, sendmail_transactional
 from datetime import datetime
-from email import Utils
 from email.header import Header
 from email.mime.text import MIMEText
-from email.utils import parseaddr
+from email.utils import parseaddr, make_msgid
 import logging
 
 logger = logging.getLogger(__name__)
@@ -62,8 +61,7 @@ class SaleOpportunityTalk(ModelSQL, ModelView):
         return display
 
 
-class SaleOpportunity:
-    __metaclass__ = PoolMeta
+class SaleOpportunity(metaclass=PoolMeta):
     __name__ = "sale.opportunity"
     talks = fields.One2Many('sale.opportunity.talk', 'opportunity', 'Talks')
     message = fields.Text('Comment')
@@ -216,7 +214,7 @@ class SaleOpportunity:
             msg['To'] = ', '.join(recipients)
             msg['Cc'] = ', '.join(cc_addresses) if cc_addresses else None
             msg['Reply-to'] = server.smtp_email
-            msg['Message-ID'] = Utils.make_msgid()
+            msg['Message-ID'] = make_msgid()
 
             if opportunity.message_id:
                 msg["In-Reply-To"] = opportunity.message_id
@@ -308,5 +306,3 @@ class SaleOpportunity:
                     attach.data  = attachment[1]
                     attach.resource  = '%s' % (opportunity)
                     attach.save()
-
-        return True
